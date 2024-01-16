@@ -1,0 +1,22 @@
+﻿@page "/"
+
+<EditForm Model="_customModel">
+    <CustomInputRadioGroup Options="@_firstOptions" @bind-Value="@_customModel.FirstOption" />
+    <CustomInputRadioGroup Options="@_secondOptions" @bind-Value="@_customModel.SecondOption" />
+</EditForm>
+
+@code {
+    private CustomModel _customModel = new();
+
+    private Dictionary<bool, string> _firstOptions = new()
+    {
+        { true, "Option A" },
+        { false, "Option B" }
+    };
+
+    private Dictionary<bool, string> _secondOptions = new()
+    {
+        { true, "Option C" },
+        { false, "Option D" }
+    };
+}
